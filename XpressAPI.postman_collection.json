@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "5a623fb8-2d19-4de6-8a10-adec55106ccc",
+		"name": "XpressAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ValidateUser",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4e0e9657-ff8e-4864-a66c-559f8d918652",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ede0ffab-f7c3-409b-a7a5-db73f3257d7b",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var jsonData=pm.response.json();",
+							"",
+							"pm.test(\"Validate User\", function(){",
+							"    if(pm.response.to.have.status(200)){",
+							"        if(jsonData.status == \"Success\"){",
+							"            return true;",
+							"        }",
+							"    return false",
+							"    }",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDUxMDAzNjAsInVzZXJfbmFtZSI6Im1pdGVzaGphcmFkaSIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMWRjMGIxZmQtOWM2Yy00ZGZlLTg5ZTYtNzgyN2Q0NzgyMWJlIiwiY2xpZW50X2lkIjoiYXV0b21hdGlvbl9jbGllbnQiLCJzY29wZSI6WyJ0cnVzdCIsInJlYWQiLCJ3cml0ZSJdfQ.wG9A4yYkXe1cIHmhVMy9ijs1Qs2frBNS07nGnsY1Rpc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://staging-xpress.lodestoneco.com:8443/xpressBackend/xpressUser/validateUser?userEmail=pravin.tirthani@lodestoneco.com",
+					"protocol": "https",
+					"host": [
+						"staging-xpress",
+						"lodestoneco",
+						"com"
+					],
+					"port": "8443",
+					"path": [
+						"xpressBackend",
+						"xpressUser",
+						"validateUser"
+					],
+					"query": [
+						{
+							"key": "userEmail",
+							"value": "pravin.tirthani@lodestoneco.com",
+							"description": "(Required) userEmail"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "500 message",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": {
+									"content": "Added as a part of security scheme: oauth2",
+									"type": "text/plain"
+								},
+								"key": "Authorization",
+								"value": "<token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/xpressUser/validateUser?userEmail=Lorem esse in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"xpressUser",
+								"validateUser"
+							],
+							"query": [
+								{
+									"key": "userEmail",
+									"value": "Lorem esse in"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "*/*"
+						}
+					],
+					"cookie": [],
+					"body": "schema type not provided"
+				},
+				{
+					"name": "Unauthorized",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": {
+									"content": "Added as a part of security scheme: oauth2",
+									"type": "text/plain"
+								},
+								"key": "Authorization",
+								"value": "<token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/xpressUser/validateUser?userEmail=Lorem esse in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"xpressUser",
+								"validateUser"
+							],
+							"query": [
+								{
+									"key": "userEmail",
+									"value": "Lorem esse in"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "*/*"
+						}
+					],
+					"cookie": [],
+					"body": "schema type not provided"
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": {
+									"content": "Added as a part of security scheme: oauth2",
+									"type": "text/plain"
+								},
+								"key": "Authorization",
+								"value": "<token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/xpressUser/validateUser?userEmail=Lorem esse in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"xpressUser",
+								"validateUser"
+							],
+							"query": [
+								{
+									"key": "userEmail",
+									"value": "Lorem esse in"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "*/*"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Not Acceptable",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": {
+									"content": "Added as a part of security scheme: oauth2",
+									"type": "text/plain"
+								},
+								"key": "Authorization",
+								"value": "<token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/xpressUser/validateUser?userEmail=Lorem esse in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"xpressUser",
+								"validateUser"
+							],
+							"query": [
+								{
+									"key": "userEmail",
+									"value": "Lorem esse in"
+								}
+							]
+						}
+					},
+					"status": "Not Acceptable",
+					"code": 406,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "*/*"
+						}
+					],
+					"cookie": [],
+					"body": "schema type not provided"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
